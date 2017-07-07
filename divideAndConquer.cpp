@@ -67,24 +67,16 @@ template<typename T>
 int maxValue(T& container, int size)
 {
    std::map<int,int> maxValue;
-   for(auto it:container)
-   {
-     if ((it).second > size)
-     {
-       size = (it).second;
-       maxValue[(it).first] = (it).second;
+   for(auto it:container) {
+     if ((it).second > size) {
+       size = (it).second; maxValue[(it).first] = (it).second;
      }
    }
    
    if (maxValue.empty())
-   {
      return -1;
-   }
    else
-   {
      return keys(maxValue);
-   }
-   
 }
 
 std::map<int,int> get_majority_element(vector<int> &a, int left, int right) {
@@ -94,13 +86,10 @@ std::map<int,int> get_majority_element(vector<int> &a, int left, int right) {
     return count;
   }
   if (left + 1 == right) {
-    if (a[left] != a[right]) 
-    {
-      count[a[left]] = 1; 
-      count[a[right]] = 1;
+    if (a[left] != a[right]) {
+      count[a[left]] = 1; count[a[right]] = 1;
     }
-    else
-    {
+    else {
       count[a[left]] = 2;
     }
     return count;
