@@ -31,7 +31,7 @@ signed int recursive_binary(const vector<int> &a, int x, int left, int right) {
 	  
   //Base case:- If the mid has reached the ends(left or right) and it doesnt match the value, then 
   //return -1 for not found.
-  if ((mid == left) or (mid == right))
+  if (left == right)
     return -1;	  
 
   //Recursion case.
@@ -73,7 +73,7 @@ int main() {
   for (int i = 0; i < m; ++i) {
     //replace with the call to binary_search when implemented
     //const clock_t begin_time1 = clock();
-    std::cout << linear_search(a, b[i]) << std::endl;
+    //std::cout << linear_search(a, b[i]) << std::endl;
     //std::cout << float( clock () - begin_time1 ) /  CLOCKS_PER_SEC << std::endl;
     
     //const clock_t begin_time2 = clock();
