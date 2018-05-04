@@ -13,12 +13,12 @@ void print(T& container)
 
 int main(){
 list<int> lst = {5,7,8};
-lst.push_back(1);
-lst.push_front(9);
+lst.push_back(1); // {5,7,8,1}
+lst.push_front(9);//{9,5,7,8,1}
 cout << "Elements in a original list" << endl;
 print(lst);
-list<int>::iterator itr = find(lst.begin(), lst.end(), 7);
-lst.insert(itr,55);
+list<int>::iterator itr = find(lst.begin(), lst.end(), 7); //itr = 7
+lst.insert(itr,55); // insert 55 in front of 7. {9,5,55,7,8,1}
 cout << "Elements with 55 inserted into a list" << endl;
 print(lst);
 

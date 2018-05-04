@@ -15,6 +15,7 @@ void foo(const unordered_map<char,string> &m){
 //  m['S'] = "Sunday"; //Will not work because m is a const.
 //  cout << m['S'] << endl; //This will also not work. Becoz the compiler thinks m['S'] is 
 //going to change the value. 
+//Subscript operator provides write access to the datastructure.
 
 //Correct way to do it.
   auto it = m.find('W');

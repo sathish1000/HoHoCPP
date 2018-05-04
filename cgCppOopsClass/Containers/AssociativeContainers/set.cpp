@@ -20,23 +20,30 @@ myset.insert(5); //myset = {5}
 myset.insert(1); //myset = {1,5}
 myset.insert(9); //myset = {1,5,9}. O(log(n)).
 
-set<int>::iterator it = myset.find(5);//O(log(n)). Sequence containers dont have even a find method.
+set<int>::iterator it = myset.find(5);//O(log(n)). Sequence containers dont have even a find method. Most important feature of associative containers
 
 //signature of ret is pair<set<int>::iterator,bool>.
 pair<set<int>::iterator,bool> ret;
-ret = myset.insert(3);
+ret = myset.insert(3); //
 
 if (ret.second==false)
    it=ret.first;
 
-myset.insert(it,11);//Why does insert have iterator pointing to 5. 11 is not going to inserted after 5. Iterator acts as a hint to reduce O(log(n)) to 0(1).
+myset.insert(it,11);//Why does insert have iterator pointing to 5. 11 is not going to inserted after 5. Iterator acts as a hint to reduce O(log(n)) to 0(1). Insert will happen at the end only.
 
+//Erase slow in sequence containers.
 cout << "Elements in the set before it is erased" << endl;
 print(myset);
 myset.erase(1);
 myset.erase(it); //Should delete 5.
 cout << "Elements in the set after it is erased" << endl;
 print(myset);
+
+//Multi set -> allows duplicated items.
+multiset<int> mymultiset;
+
+//set/multiset -> value of items cant be modified.
+//*it = 10; //*it is read only.
 
 return 0;
 }

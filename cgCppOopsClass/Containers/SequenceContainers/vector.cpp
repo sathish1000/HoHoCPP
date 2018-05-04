@@ -9,10 +9,24 @@ return i>j;
 
 int main(){
 
-vector<int> vec; //vec.size()=0
+//Dynamic array that grows in size. Allocated on the heap.
+vector<int> vec; //vec.size()=0. //Default constructor called.
 vec.push_back(5);
 vec.push_back(1);
-vec.push_back(8);
+vec.push_back(8); //vec = {5, 1, 8} vec.size()=3
+
+//Begin points to the first element in the vector, end points to one past the last element in the vector.
+vector<int>::iterator itr1 = vec.begin(); //half-open [begin, end)
+vector<int>::iterator itr2 = vec.end();
+
+cout << *vec.end() << endl; //Undefined behaviour. Dangerous situation to get into.
+
+sort(itr1, itr2); //vec = {1, 5, 8}
+
+//Iterator is like a pointer. Iterator is a class
+//1)Assign them, Add them, compare them, dereference them
+for (vector<int>::iterator itr=itr1; itr!=itr2; itr++)
+    cout << *itr << endl;
 
 //Size command
 cout << "vector size is " << vec.size() << endl;
@@ -50,8 +64,13 @@ for (vector<int>::iterator itr=vec.begin(); itr!=vec.end(); itr++)
 cout << "C++11 way to access container" << endl;
 for (auto itr: vec)
     cout << itr << endl;
+	
+//Vector is a dynamically allocated contiguous array in memory [heap]
+int* p = &vec2[0]; //p[2] is valid	
 
+//////////////////////////////////////
 //Common functions across containers.
+//////////////////////////////////////
 //Empty
 if (vec.empty()) {cout << "Vector is empty" << endl;};
 
@@ -66,13 +85,13 @@ for (vector<int>::iterator itr=vec2.begin(); itr!=vec2.end(); itr++)
     cout << *itr << endl;
 
 //Clear contents of a vector.
-vec.clear();
+vec.clear(); //vec.size() is zero.
 cout << "Clear contents of vector VEC" << endl;
 for (vector<int>::iterator itr=vec.begin(); itr!=vec.end(); itr++)
     cout << *itr << endl;
 
 //Swap contents of a vector.
-vec2.swap(vec);
+vec2.swap(vec); //vec.size() = 0 & vec2.size() = 3
 cout << "Swap contents of vector " << endl;
 cout << "Contents of vector VEC " << endl;
 for (vector<int>::iterator itr=vec.begin(); itr!=vec.end(); itr++)
